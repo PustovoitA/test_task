@@ -4,5 +4,5 @@ import Coins from "./pages/Coins.jsx";
 
 export const routes = [
     { path: "/", label: "Home", icon: <HomeOutlined />, element: <Home /> },
-    { path: "/Coins", label: "Coins", icon: <TableOutlined />, element: <Coins /> },
+    { path: "/coins", label: "Coins", icon: <TableOutlined />, element: <Coins /> },
 ];
