@@ -5,16 +5,19 @@ import CoinsTable from "../components/CoinsTable";
 
 
 function Coins(){
-    const {data, isLoading, error} = useCoins();
+    const {data, isLoading, isError, isSuccess} = useCoins();
 
-    return(<div>
-        {isLoading
-        ? <Spin />
-        : error
-        ? <div> Data is not found </div>
-        : <CoinsTable data={data} isLoading={isLoading}/>
-        }
-    </div>)
+    if(isLoading){
+        return <Spin size="large" />
+    }
+
+    if(isError){
+        return <div> Data is not found </div>
+    }
+
+    if(isSuccess){
+        return <CoinsTable data={data} isLoading={isLoading} />
+    }
 }
 
 export default Coins
