@@ -5,7 +5,7 @@ import {
     formatCompactNumber,
 } from "../utils/formatters";
 
-function CoinsTable ({data, isLoading, pagination, onPageChange}) {
+function CoinsTable ({data, isLoading, pagination, onPageChange, currentPage}) {
 
     const columns = [
         
@@ -95,8 +95,22 @@ function CoinsTable ({data, isLoading, pagination, onPageChange}) {
             columns={columns}
             dataSource={data}
             loading={isLoading}
-            pagination={pagination}
-            onChange={onPageChange}
+            pagination = {
+                pagination
+                ?{
+                    current: currentPage,
+                    pageSize: 20,
+                    total: 400,
+                 }
+                :false
+            }
+            onChange={(paginationInfo)=>{
+                if(pagination){
+                    onPageChange(
+                        paginationInfo.current
+                    )
+                }
+            }}
             sticky
         />)
 }
