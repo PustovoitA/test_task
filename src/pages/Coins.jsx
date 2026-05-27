@@ -12,7 +12,7 @@ function Coins(){
         ? <Spin />
         : error
         ? <div> Data is not found </div>
-        : <CoinsTable data={data} isLoading={isLoading} pagination={false}/>
+        : <CoinsTable data={data} isLoading={isLoading}/>
         }
     </div>)
 }
